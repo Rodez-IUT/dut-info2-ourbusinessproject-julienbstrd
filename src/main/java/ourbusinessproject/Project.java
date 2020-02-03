@@ -12,7 +12,7 @@ public class Project {
 
     @Id
     @GeneratedValue
-    private long id;
+    private Long id;
 
     @NotEmpty
     private String title;

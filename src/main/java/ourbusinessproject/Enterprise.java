@@ -28,7 +28,7 @@ public class Enterprise {
     private String ContactName;
 
     @NotEmpty
-    @Email  @Column(name = "Nom",nullable = false)
+    @Email
     private String ContactEmail;
 
     public String getName() {
