@@ -1,10 +1,21 @@
 package ourbusinessproject;
 
+
+
+import net.bytebuddy.dynamic.loading.InjectionClassLoader;
+import org.springframework.boot.autoconfigure.web.ResourceProperties;
+
+import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
 
+@Entity
 public class Enterprise {
+
+    @Id
+    @GeneratedValue
+    private Long id;
 
     @NotEmpty
     private String Name;
@@ -17,7 +28,7 @@ public class Enterprise {
     private String ContactName;
 
     @NotEmpty
-    @Email
+    @Email  @Column(name = "Nom",nullable = false)
     private String ContactEmail;
 
     public String getName() {
