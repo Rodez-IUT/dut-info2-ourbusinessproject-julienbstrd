@@ -15,7 +15,7 @@ public class Enterprise {
 
     @Id
     @GeneratedValue
-    private Long id;
+    private Long Id;
 
     @NotEmpty
     private String Name;
@@ -62,4 +62,6 @@ public class Enterprise {
     public void setContactEmail(String contactEmail) {
         ContactEmail = contactEmail;
     }
+
+    public Long getId() { return Id; }
 }
