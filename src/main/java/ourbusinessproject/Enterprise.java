@@ -24,6 +24,17 @@ public class Enterprise {
     @Size(min = 10)
     private String Description;
 
+    public Project getProjects() {
+        return Projects;
+    }
+
+    public void setProjects(Project projects) {
+        Projects = projects;
+    }
+
+    @OneToMany
+    private Project Projects;
+
     @NotEmpty
     private String ContactName;
 
