@@ -18,6 +18,17 @@ public class Project {
     private String title;
     private String description;
 
+    @NotNull
+    private Enterprise Entreprise;
+
+    public Enterprise getEntreprise() {
+        return Entreprise;
+    }
+
+    public void setEntreprise(Enterprise entreprise) {
+        Entreprise = entreprise;
+    }
+
     public String getTitle() {
         return title;
     }
