@@ -4,11 +4,14 @@ package ourbusinessproject;
 
 import net.bytebuddy.dynamic.loading.InjectionClassLoader;
 import org.springframework.boot.autoconfigure.web.ResourceProperties;
+import org.springframework.lang.Nullable;
 
 import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashSet;
 
@@ -27,7 +30,7 @@ public class Enterprise {
     private String Description;
 
     @OneToMany(mappedBy = "entreprise")
-    public Collection<Project>  Projects = new HashSet<>();
+    public Collection<Project>  Projects ;
 
     public Collection<Project> getProjects() {
         return Projects;
@@ -77,4 +80,12 @@ public class Enterprise {
     }
 
     public Long getId() { return Id; }
+
+    public void addProject(Project p){
+        if(this.Projects == null){
+            this.Projects = new ArrayList<Project>();
+        }
+        this.Projects.add(p);
+
+    }
 }

@@ -22,6 +22,7 @@ public class Project {
     private String description;
 
     @ManyToOne
+    @NotNull
     public Enterprise entreprise;
 
     public Enterprise getEntreprise() {
