@@ -25,6 +25,16 @@ public class Project {
     @NotNull
     public Enterprise entreprise;
 
+    public Project() {
+
+    }
+
+    public Project(String title, String description, Enterprise enterprise) {
+        this.title = title;
+        this.description = description;
+        this.entreprise = enterprise;
+    }
+
     public Enterprise getEntreprise() {
         return entreprise;
     }
