@@ -9,6 +9,8 @@ import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
+import java.util.Collection;
+import java.util.HashSet;
 
 @Entity
 public class Enterprise {
@@ -24,16 +26,16 @@ public class Enterprise {
     @Size(min = 10)
     private String Description;
 
-    public Project getProjects() {
+    @OneToMany(mappedBy = "entreprise")
+    public Collection<Project>  Projects = new HashSet<>();
+
+    public Collection<Project> getProjects() {
         return Projects;
     }
 
-    public void setProjects(Project projects) {
+    public void setProjects(Collection<Project> projects) {
         Projects = projects;
     }
-
-    @OneToMany
-    private Project Projects;
 
     @NotEmpty
     private String ContactName;

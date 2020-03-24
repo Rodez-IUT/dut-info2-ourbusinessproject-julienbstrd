@@ -8,12 +8,20 @@ import javax.persistence.PersistenceContext;
 @Service
 public class EnterpriseProjectService {
 
+
     public void save(Enterprise e) {
         entityManager.persist(e);
         entityManager.flush();
     }
 
     public void save(Project p) {
+        save(p.getEntreprise());
+        if(p.getEntreprise().getId() != null) {
+            Enterprise ent = findEnterpriseById(p.getEntreprise().getId());
+            ent.getProjects().add(p);
+            save(ent);
+        }
+
         entityManager.persist(p);
         entityManager.flush();
     }
@@ -32,12 +40,12 @@ public class EnterpriseProjectService {
 
     public Project findProjectById(Long IdProject) {
 
-        Project projet = entityManager.find(Project.class, IdProject);
-        return projet;
+        Project projet2 = entityManager.find(Project.class, IdProject);
+        return projet2;
     }
 
     public Enterprise findEnterpriseById(Long IdEnterprise) {
-        Enterprise entreprise = entityManager.find(Enterprise.class, IdEnterprise);
-        return entreprise;
+        Enterprise entreprise2 = entityManager.find(Enterprise.class, IdEnterprise);
+        return entreprise2;
     }
 }
