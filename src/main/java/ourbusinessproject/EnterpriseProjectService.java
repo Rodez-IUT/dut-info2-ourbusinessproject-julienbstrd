@@ -1,7 +1,6 @@
 package ourbusinessproject;
 
 import org.springframework.stereotype.Service;
-
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
@@ -10,14 +9,12 @@ import java.util.List;
 @Service
 public class EnterpriseProjectService {
 
-
     public void save(Enterprise e) {
         entityManager.persist(e);
         entityManager.flush();
     }
 
     public void save(Project p) {
-
         if(p.getEntreprise() != null) {
             p.getEntreprise().addProject(p);
             save(p.getEntreprise());
@@ -39,11 +36,12 @@ public class EnterpriseProjectService {
         this.entityManager = entityManager;
     }
 
-    public Project findProjectById(Long IdProject) {
 
+    public Project findProjectById(Long IdProject) {
         Project projet2 = entityManager.find(Project.class, IdProject);
         return projet2;
     }
+
 
     public Enterprise findEnterpriseById(Long IdEnterprise) {
         Enterprise entreprise2 = entityManager.find(Enterprise.class, IdEnterprise);
