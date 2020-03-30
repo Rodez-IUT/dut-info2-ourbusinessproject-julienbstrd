@@ -2,6 +2,7 @@ package ourbusinessproject;
 
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import net.bytebuddy.dynamic.loading.InjectionClassLoader;
 import org.springframework.boot.autoconfigure.web.ResourceProperties;
 import org.springframework.lang.Nullable;
@@ -30,8 +31,10 @@ public class Enterprise {
     private String Description;
 
     @OneToMany(mappedBy = "entreprise")
+    @JsonIgnore
     public Collection<Project>  Projects ;
 
+    @JsonIgnore
     public Collection<Project> getProjects() {
         return Projects;
     }
