@@ -1,0 +1,6 @@
+Il y a 3 requete Select lors du chargement de la page :
+- La premiere selectionne la totalité des projet et provient de la methode findAllProjectsWithEnterprises() de ProjectController (sur laquelle il y a le Request Mapping)
+
+- Les deux autre requete qui selectionne respectivement les information des deux entreprise initialiser dans InitializationService, ces dernière ne sont pas utile
+  pour le resultat que l'on souhaite obtenir (la liste des projet). Cependant elle sont présentent car la requete de selection du projet selectionne egalement l'entreprise attacher au produit,
+  en l'absence de jointure pour récuperer l'entreprise associer au projet, Hibernate choisit de faire une requete supplementaire afin de récuperer ces information complementaire.
