@@ -65,6 +65,12 @@ public class InitializationService {
 
     @Transactional
     public void initProjects() {
+        /*
+         * Lorsque l'initialisation de l'un des projet ne se fais pas correctement en omettant
+         * par exemple une information obligatoire (le titre ou la description ou l'entreprise par exemple)
+         * Cela fausse la transaction qui s'arrete alors et renvoie une erreur sans initialiser les projet correctement ecrit
+         * La transaction fait donc toute les initialisation si correcte sinon aucune si ,l'une d'elle est incorrecte
+         */
         Entreprise1 = new Enterprise();
         Entreprise1.setName("Entreprise1");
         Entreprise1.setDescription("description Entreprise1");
